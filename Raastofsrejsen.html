@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Råstoffernes Rejse til Tesla Model S - Århus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #333;
+            line-height: 1.4;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .main-header {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .main-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .main-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .scenario-info {
+            background: #fef3c7;
+            padding: 20px;
+            border-left: 5px solid #f59e0b;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        
+        .scenario-info h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .material-section {
+            margin: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+        
+        .material-section:first-child {
+            page-break-before: auto;
+        }
+        
+        .material-header {
+            color: white;
+            padding: 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        
+        .lithium .material-header { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+        .grafit .material-header { background: linear-gradient(135deg, #374151, #1f2937); }
+        .nikkel .material-header { background: linear-gradient(135deg, #059669, #047857); }
+        .kobolt .material-header { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+        .mangan .material-header { background: linear-gradient(135deg, #ea580c, #c2410c); }
+        .kobber .material-header { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+        .aluminium .material-header { background: linear-gradient(135deg, #64748b, #475569); }
+        .jern .material-header { background: linear-gradient(135deg, #1f2937, #111827); }
+        
+        .journey-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        .journey-table th {
+            background: #f8fafc;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #e2e8f0;
+            color: #374151;
+        }
+        
+        .journey-table td {
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        
+        .journey-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        
+        .fase-col {
+            width: 20%;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        .sted-col {
+            width: 25%;
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .proces-col {
+            width: 35%;
+        }
+        
+        .begrundelse-col {
+            width: 20%;
+            font-style: italic;
+            color: #6b7280;
+        }
+        
+        .transport-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .distance-time {
+            background: #fef3c7;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #92400e;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .process-detail {
+            background: #e0f2fe;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 5px;
+            border-left: 3px solid #0284c7;
+        }
+        
+        .final-destination {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .final-destination h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .material-section {
+                page-break-before: always;
+                page-break-inside: avoid;
+            }
+        }
+        
+        @page {
+            margin: 1cm;
+            size: A4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1>🚗 Råstoffernes Rejse til Tesla Model S (2022)</h1>
+            <p>Fra Mine til Solgt Bil i Århus, Danmark</p>
+        </div>
+        
+        <div class="scenario-info">
+            <h3>🎯 Specifikt Scenarie:</h3>
+            <p><strong>Batteriteknologi:</strong> 18650 NCA-celler fra Panasonic Gigafactory Nevada</p>
+            <p><strong>Bilmontering:</strong> Tesla Fremont Factory, Californien</p>
+            <p><strong>Slutdestination:</strong> Tesla Model S (2022) solgt i Århus, Danmark</p>
+            <p><strong>Transportrute til Europa:</strong> Fremont → San Francisco → Zeebrugge → Århus</p>
+        </div>
+
+        <!-- LITHIUM -->
+        <div class="material-section lithium">
+            <div class="material-header">
+                ⚡ LITHIUM - Salar de Atacama → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Udvinding & Første Forarbejdning</td>
+                        <td class="sted-col">Salar de Atacama, Chile</td>
+                        <td class="proces-col">
+                            Lithiumholdig saltlage udvindes via fordampning i solbassiner.
+                            <div class="transport-icon">🚛</div>Transport til koncentrationsanlæg
+                            <div class="distance-time">50-100 km, 2-4 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Chile har verdens største lithiumreserver og tørre forhold ideelle til fordampning.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Transport af råmateriale til Japan</td>
+                        <td class="sted-col">Salar de Atacama → Antofagasta → Osaka → Ōtake-raffinaderi</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Lastbil til havn
+                            <div class="transport-icon">🚢</div>Containerskib til Japan
+                            <div class="distance-time">400 km + 15-20 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">Japan har avanceret teknologi til videre forarbejdning.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Raffinering til batterikvalitet</td>
+                        <td class="sted-col">Ōtake, Japan</td>
+                        <td class="proces-col">
+                            Lithiumcarbonat omdannes til lithiumhydroxid med høj renhed.
+                            <div class="process-detail">Kun ultrarent lithium kan bruges i NCA-katoder.</div>
+                        </td>
+                        <td class="begrundelse-col">Kun ultrarent lithium kan bruges i NCA-katoder.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Transport af raffineret råmateriale</td>
+                        <td class="sted-col">Ōtake-raffinaderi → Sumitomo Metal Mining (SMM) i Ehime-præfekturet</td>
+                        <td class="proces-col">
+                            <strong>Lithiumhydroxid (LiOH)</strong> transporteres med lastbil/tog
+                            <div class="distance-time">200 km, 4-6 timer</div>
+                        </td>
+                        <td class="begrundelse-col">SMM producerer NCA-katoder til Panasonic.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Produktion af NCA-katodemateriale</td>
+                        <td class="sted-col">Niihama, Japan</td>
+                        <td class="proces-col">
+                            Lithiumhydroxid (LiOH), blandes med nikkel, kobolt og aluminium til LiNiCoAlO₂ (NCA) i en hydrotermal proces.
+                            <div class="process-detail">Vandbaseret kemisk reaktion under højt tryk/temperatur for homogen blanding</div>
+                        </td>
+                        <td class="begrundelse-col">Japan er førende i kemisk batteriteknologi.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. Transport af katodemateriale til USA</td>
+                        <td class="sted-col">Niihama, Japan → Osaka/Kobe → Port of Oakland, California → Sparks, Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Færdigt katodemateriale sendes til Panasonic Gigafactory
+                            <div class="transport-icon">🚛</div>Lastbil fra havn til fabrik
+                            <div class="distance-time">10-12 dage sørejse + 300 km lastbil</div>
+                        </td>
+                        <td class="begrundelse-col">USA har stor batteriecelle-produktion.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. Fremstilling af 18650-battericeller</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Panasonic samler battericeller med NCA-katoder og elektrolyt.
+                            <div class="process-detail">18650 format: 18mm diameter, 65mm længde</div>
+                        </td>
+                        <td class="begrundelse-col">Tesla anvender dem i Model S.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. Transport til bilfabrikken</td>
+                        <td class="sted-col">Sparks, Nevada → Fremont, Californien, USA</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Celler transporteres med lastbil til bilfabrik
+                            <div class="distance-time">380 km, 4-5 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Kort afstand, lav CO₂.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. Bilmontering</td>
+                        <td class="sted-col">Fremont, Californien, USA</td>
+                        <td class="proces-col">
+                            Tesla Model S samles med batteri, elektronik og karrosseri.
+                            <div class="process-detail">7,104 celler i batteripakken</div>
+                        </td>
+                        <td class="begrundelse-col">Her foregår den endelige samling.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Global transport til Europa</td>
+                        <td class="sted-col">Fremont, Californien → San Francisco → Zeebrugge, Belgien</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Model S sendes med RoRo-skib over Atlanterhavet
+                            <div class="distance-time">50 km + 14-16 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">Zeebrugge er central bilhavn i Europa.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Levering til Århus</td>
+                        <td class="sted-col">Zeebrugge → Risskov, Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Transport med lastbil til Tesla-forhandler i Århus
+                            <div class="distance-time">900 km, 10-12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Sidste trin - bilen er klar til forbrugeren.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- GRAFIT -->
+        <div class="material-section grafit">
+            <div class="material-header">
+                ⚫ GRAFIT - Mozambique → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Udvinding & Koncentration</td>
+                        <td class="sted-col">Balama Graphite Mine, Mozambique</td>
+                        <td class="proces-col">
+                            Naturlig grafit udvindes fra åben mine og koncentreres til 95-97% renhed.
+                            <div class="transport-icon">🚛</div>Transport til havn
+                            <div class="distance-time">500 km, 8-12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Mozambique har høj-kvalitets naturlig grafit med store flager.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Transport til Kina</td>
+                        <td class="sted-col">Nacala, Mozambique → Shanghai, Kina</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Grafit koncentrat sendes til kinesiske raffinaderier
+                            <div class="distance-time">20-25 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">100% af batterikvalitets grafit raffineres i Kina.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Høj-renhed Rensning</td>
+                        <td class="sted-col">Heilongjiang Provins, Kina</td>
+                        <td class="proces-col">
+                            Kemisk og termisk behandling til >99,95% renhed til spherical graphite.
+                            <div class="process-detail">Hydrofluor- og saltsyre fjerner urenheder</div>
+                        </td>
+                        <td class="begrundelse-col">Kun høj-renhed grafit fungerer som batteri-anode.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Spherical Graphite Produktion</td>
+                        <td class="sted-col">Jixi, Heilongjiang, Kina</td>
+                        <td class="proces-col">
+                            Grafit formes til perfekte sfærer for optimal lithium-indlæring.
+                            <div class="process-detail">Spheronization og coating for bedre ydelse</div>
+                        </td>
+                        <td class="begrundelse-col">Sfærisk form maximerer anode-kapacitet.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Transport til USA</td>
+                        <td class="sted-col">Shanghai → Port of Oakland → Sparks, Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Spherical graphite sendes til Panasonic
+                            <div class="transport-icon">🚛</div>Lastbil fra havn
+                            <div class="distance-time">12-14 dage sørejse + 300 km</div>
+                        </td>
+                        <td class="begrundelse-col">Panasonic bruger kinesisk grafit til anoder.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. Anode Produktion</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Spherical graphite blandes med bindemiddel og coates på kobber-folie.
+                            <div class="process-detail">PVDF bindemiddel og NMP opløsning</div>
+                        </td>
+                        <td class="begrundelse-col">Anoden er negativt elektrode i lithium-ion cellen.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. 18650 Celle Assemblering</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Grafit-anode kombineres med NCA-katode og elektrolyt til 18650 celle.
+                            <div class="process-detail">Separator og elektrolyt kompleterer cellen</div>
+                        </td>
+                        <td class="begrundelse-col">18650 format til Tesla Model S batteripakke.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. Transport til bilfabrikken</td>
+                        <td class="sted-col">Sparks, Nevada → Fremont, Californien</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Færdige celler til Tesla bilfabrik
+                            <div class="distance-time">380 km, 4-5 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Kort transport mellem Gigafactory og bilfabrik.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. Model S Montering</td>
+                        <td class="sted-col">Fremont, Californien</td>
+                        <td class="proces-col">
+                            7,104 celler indbygges i Model S batteripakke med termisk styring.
+                        </td>
+                        <td class="begrundelse-col">Grafit anoder giver lang rækkevidde.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Skibstransport til Europa</td>
+                        <td class="sted-col">San Francisco → Zeebrugge</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>RoRo-skib med Tesla Model S
+                            <div class="distance-time">14-16 dage</div>
+                        </td>
+                        <td class="begrundelse-col">Mest effektiv transport til europæisk marked.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Levering til Danmark</td>
+                        <td class="sted-col">Zeebrugge → Tesla Risskov, Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Bil-transportør til Tesla forhandler
+                            <div class="distance-time">900 km, 10-12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Klar til salg i Århus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- NIKKEL -->
+        <div class="material-section nikkel">
+            <div class="material-header">
+                🟢 NIKKEL - Indonesien → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Laterit Mining</td>
+                        <td class="sted-col">Pomalaa, Sulawesi, Indonesien</td>
+                        <td class="proces-col">
+                            Nikkel-rig laterit malm udvindes fra åbne miner (1,8-2,2% Ni).
+                            <div class="transport-icon">🚛</div>Transport til HPAL anlæg
+                            <div class="distance-time">50 km, 2-3 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Indonesien har 22% af verdens nikkelreserver.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. HPAL Processing</td>
+                        <td class="sted-col">Pomalaa HPAL, Indonesien</td>
+                        <td class="proces-col">
+                            High Pressure Acid Leach behandling producerer Mixed Hydroxide Precipitate (MHP).
+                            <div class="process-detail">Svovlsyre under 250°C og 45 bar tryk</div>
+                        </td>
+                        <td class="begrundelse-col">Eksportforbud tvinger lokal forarbejdning.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Transport til Raffinaderi</td>
+                        <td class="sted-col">Pomalaa → Harjavalta, Finland</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>MHP sendes til Boliden Harjavalta raffinaderi
+                            <div class="distance-time">25-30 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">Finland har verdens reneste nikkel-elektrolyse.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Klasse I Nikkel Raffinering</td>
+                        <td class="sted-col">Harjavalta, Finland</td>
+                        <td class="proces-col">
+                            Elektrolyse producerer høj-renhed nikkel (>99,8%) til batterier.
+                            <div class="process-detail">Chloride leaching og solvent extraction</div>
+                        </td>
+                        <td class="begrundelse-col">Kun Klasse I nikkel kan bruges i NCA-katoder.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Transport til Katode-producent</td>
+                        <td class="sted-col">Harjavalta → Niihama, Japan</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Nikkel katoder transporteres til Sumitomo
+                            <div class="distance-time">20-25 dage via Arktis-rute</div>
+                        </td>
+                        <td class="begrundelse-col">Sumitomo producerer NCA-materiale til Panasonic.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. NCA Katode-materiale</td>
+                        <td class="sted-col">Niihama, Japan</td>
+                        <td class="proces-col">
+                            Nikkel blandes med lithium, kobolt og aluminium til LiNi₀.₈Co₀.₁₅Al₀.₀₅O₂.
+                            <div class="process-detail">Co-precipitation og høj-temperatur calcination</div>
+                        </td>
+                        <td class="begrundelse-col">80% nikkel giver høj energitæthed til Tesla.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. Transport til USA</td>
+                        <td class="sted-col">Osaka → Oakland → Sparks, Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>NCA-materiale til Panasonic Gigafactory
+                            <div class="transport-icon">🚛</div>Lastbil fra havn
+                            <div class="distance-time">10-12 dage + 300 km</div>
+                        </td>
+                        <td class="begrundelse-col">Panasonic producerer NCA-celler til Tesla.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. 18650 Katode Produktion</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            NCA-materiale coates på aluminium-folie som positiv elektrode.
+                            <div class="process-detail">PVDF bindemiddel og NMP opløsning</div>
+                        </td>
+                        <td class="begrundelse-col">Højt nikkelindhold giver lang rækkevidde.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. Celle Assemblering</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            NCA-katode kombineres med grafit-anode til 18650 celle.
+                        </td>
+                        <td class="begrundelse-col">18650 format optimeret til Model S.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Model S Integration</td>
+                        <td class="sted-col">Fremont, Californien</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Celler til bilfabrik og integration i batteripakke
+                            <div class="distance-time">380 km transport</div>
+                        </td>
+                        <td class="begrundelse-col">Final integration i Tesla Model S.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Europa & Århus</td>
+                        <td class="sted-col">Fremont → Zeebrugge → Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div><div class="transport-icon">🚛</div>RoRo-skib og lastbil til Tesla forhandler
+                            <div class="distance-time">16 dage sørejse + 12 timer lastbil</div>
+                        </td>
+                        <td class="begrundelse-col">Klar til salg i Danmark.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- KOBOLT -->
+        <div class="material-section kobolt">
+            <div class="material-header">
+                🟣 KOBOLT - DR Congo → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Kobber-Kobolt Mining</td>
+                        <td class="sted-col">Tenke Fungurume, Katanga, DR Congo</td>
+                        <td class="proces-col">
+                            Kobolt udvindes som biprodukt fra kobber-miner (0,3-0,6% Co).
+                            <div class="transport-icon">🚛</div>Transport til koncentrator
+                            <div class="distance-time">50 km, 2-3 timer</div>
+                        </td>
+                        <td class="begrundelse-col">DR Congo har 70% af verdens kobolt-reserver.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Koncentration & Første Raffinering</td>
+                        <td class="sted-col">Kolwezi, DR Congo</td>
+                        <td class="proces-col">
+                            Flotation og hydrometallurgi producerer kobolt koncentrat/hydroxide.
+                            <div class="process-detail">Svovlsyre-leaching og precipitation</div>
+                        </td>
+                        <td class="begrundelse-col">Lokal forarbejdning før eksport.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Transport til Havn</td>
+                        <td class="sted-col">Kolwezi → Dar es Salaam, Tanzania</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚂</div>TAZARA jernbane til Indiske Ocean
+                            <div class="distance-time">1.860 km, 3-5 dage</div>
+                        </td>
+                        <td class="begrundelse-col">Eneste jernbane-forbindelse til havet.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Skibstransport til Kina</td>
+                        <td class="sted-col">Dar es Salaam → Shanghai/Tianjin</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Kobolt koncentrat til kinesiske raffinaderier
+                            <div class="distance-time">20-25 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">80% af kobolt raffineres i Kina til batterikvalitet.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Kobolt Sulfat Produktion</td>
+                        <td class="sted-col">Jinchuan, Gansu Provins, Kina</td>
+                        <td class="proces-col">
+                            Høj-renhed kobolt sulfat (CoSO₄·7H₂O) til batterikemikalier.
+                            <div class="process-detail">Solvent extraction og crystallization</div>
+                        </td>
+                        <td class="begrundelse-col">Kun høj-renhed kobolt sulfat til NCA-synthesis.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. Transport til Japan</td>
+                        <td class="sted-col">Tianjin → Osaka, Japan</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Kobolt sulfat til Sumitomo katode-facility
+                            <div class="distance-time">2-3 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">Sumitomo blander NCA-materiale til Panasonic.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. NCA Co-Precipitation</td>
+                        <td class="sted-col">Niihama, Japan</td>
+                        <td class="proces-col">
+                            Kobolt blandes med nikkel og aluminium til NCA precursor.
+                            <div class="process-detail">15% kobolt i Li(Ni₀.₈Co₀.₁₅Al₀.₀₅)O₂</div>
+                        </td>
+                        <td class="begrundelse-col">Kobolt stabiliserer krystalstrukturen.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. NCA til Gigafactory</td>
+                        <td class="sted-col">Osaka → Oakland → Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Færdigt NCA-materiale til Panasonic
+                            <div class="distance-time">10-12 dage + 300 km lastbil</div>
+                        </td>
+                        <td class="begrundelse-col">Panasonic 18650 celle-produktion.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. 18650 Celle Produktion</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            NCA-katoder med 15% kobolt i 18650 format.
+                            <div class="process-detail">7,104 celler per Model S batteripakke</div>
+                        </td>
+                        <td class="begrundelse-col">Kobolt giver termisk stabilitet.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Tesla Integration</td>
+                        <td class="sted-col">Nevada → Fremont → Europa</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div><div class="transport-icon">🚢</div>Batterier til bilfabrik, derefter Europa
+                            <div class="distance-time">380 km + 16 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">Tesla Model S til europæisk marked.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Levering Århus</td>
+                        <td class="sted-col">Zeebrugge → Tesla Risskov</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Model S med kobolt-holdige batterier til Danmark
+                            <div class="distance-time">900 km, 12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Klar til dansk forbruger.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- MANGAN -->
+        <div class="material-section mangan">
+            <div class="material-header">
+                🟠 MANGAN - Sydafrika → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Manganmalm Udvinding</td>
+                        <td class="sted-col">Hotazel, Kalahari, Sydafrika</td>
+                        <td class="proces-col">
+                            Manganmalm (35-48% Mn) udvindes fra verdens største reserver.
+                            <div class="transport-icon">🚂</div>Orex jernbane til havn
+                            <div class="distance-time">900 km, 24-36 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Sydafrika har 75% af verdens manganreserver.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Skibstransport</td>
+                        <td class="sted-col">Port Elizabeth → Sandfjord, Norge</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Manganmalm til Eramet Norge for EMM-produktion
+                            <div class="distance-time">18-22 dage sørejse</div>
+                        </td>
+                        <td class="begrundelse-col">Norge har billig vandkraft til energiintensiv EMM.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Elektrolytisk Mangan (EMM)</td>
+                        <td class="sted-col">Sauda/Porsgrunn, Norge</td>
+                        <td class="proces-col">
+                            Elektrolyse producerer højrent mangan (99,7%+) til batterier.
+                            <div class="process-detail">Svovlsyre-leaching og elektrolyse med vandkraft</div>
+                        </td>
+                        <td class="begrundelse-col">Kun ultrarent mangan kan bruges i NCA-katoder.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Transport til Japan</td>
+                        <td class="sted-col">Oslo → Osaka, Japan</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>EMM til Sumitomo for NCA-blanding
+                            <div class="distance-time">25-30 dage via Suez</div>
+                        </td>
+                        <td class="begrundelse-col">Sumitomo producerer NCA til Panasonic.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. NCA Precursor Blanding</td>
+                        <td class="sted-col">Niihama, Japan</td>
+                        <td class="proces-col">
+                            Mangan indgår i aluminium-stabiliseret NCA: Li(Ni₀.₈Co₀.₁₅Al₀.₀₅)O₂.
+                            <div class="process-detail">Spormængder mangan forbedrer strukturel stabilitet</div>
+                        </td>
+                        <td class="begrundelse-col">Mangan forbedrer cykluslevetid og sikkerhed.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. High-Temp Calcination</td>
+                        <td class="sted-col">Niihama, Japan</td>
+                        <td class="proces-col">
+                            NCA precursor calcineres ved 750-850°C til færdigt katodemateriale.
+                            <div class="process-detail">Kontrolleret atmosfære og køling</div>
+                        </td>
+                        <td class="begrundelse-col">Høj temperatur sikrer optimal krystalstruktur.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. NCA til Gigafactory</td>
+                        <td class="sted-col">Osaka → Oakland → Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Mangan-stabiliseret NCA til Panasonic
+                            <div class="distance-time">10-12 dage + 300 km</div>
+                        </td>
+                        <td class="begrundelse-col">18650 celle-produktion til Tesla.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. Katode Coating</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            NCA med mangan coates på aluminium-folie som positiv elektrode.
+                        </td>
+                        <td class="begrundelse-col">Mangan giver bedre cyklusstabilitet.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. 18650 Assemblering</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Katode med mangan samles med anode til komplet celle.
+                        </td>
+                        <td class="begrundelse-col">Færdig 18650 celle til Model S.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Tesla Model S</td>
+                        <td class="sted-col">Nevada → Fremont → Europa</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div><div class="transport-icon">🚢</div>Batteripakke integration og Europa-eksport
+                            <div class="distance-time">380 km + 16 dage</div>
+                        </td>
+                        <td class="begrundelse-col">Model S til europæisk marked.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Danmark Levering</td>
+                        <td class="sted-col">Zeebrugge → Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Tesla Model S med mangan-stabiliserede batterier
+                            <div class="distance-time">900 km, 12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Klar til salg i Århus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- KOBBER -->
+        <div class="material-section kobber">
+            <div class="material-header">
+                🔴 KOBBER - Chile → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Kobber Mining</td>
+                        <td class="sted-col">Escondida Mine, Atacama, Chile</td>
+                        <td class="proces-col">
+                            Verdens største kobbermine udvinder malm (0,5-1,0% Cu).
+                            <div class="transport-icon">🚛</div>Mining trucks til koncentrator
+                            <div class="distance-time">15 km, 45 min</div>
+                        </td>
+                        <td class="begrundelse-col">Chile producerer 28% af verdens kobber.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Koncentration</td>
+                        <td class="sted-col">Escondida Concentrator, Chile</td>
+                        <td class="proces-col">
+                            Flotation koncentrerer malm til 25-30% kobber koncentrat.
+                            <div class="process-detail">Crushing, grinding og froth flotation</div>
+                        </td>
+                        <td class="begrundelse-col">Reducerer volumen før transport.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Transport til Havn</td>
+                        <td class="sted-col">Escondida → Antofagasta Havn</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Kobber koncentrat i lastbiler til havn
+                            <div class="distance-time">170 km, 4-5 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Antofagasta er Chiles største kobiohavn.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Skibstransport</td>
+                        <td class="sted-col">Antofagasta → Onsan, Sydkorea</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Bulk carrier til LS-Nikko smelteværk
+                            <div class="distance-time">22-28 dage via Panama</div>
+                        </td>
+                        <td class="begrundelse-col">Sydkorea har avancerede kobber-smelteværker.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Kobber Smeltning & Raffinering</td>
+                        <td class="sted-col">Onsan, Sydkorea</td>
+                        <td class="proces-col">
+                            Flash smeltning og elektrolyse til 99,99% ren kobber.
+                            <div class="process-detail">Isasmelt furnace og tankhouse elektrolyse</div>
+                        </td>
+                        <td class="begrundelse-col">Høj renhed nødvendig til elektronik.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. Kobber Folie Produktion</td>
+                        <td class="sted-col">Gunsan, Sydkorea</td>
+                        <td class="proces-col">
+                            Elektrolyse kobber formes til tynde folier (6-35 µm) til batterier.
+                            <div class="process-detail">Electrodeposition på titanium trommer</div>
+                        </td>
+                        <td class="begrundelse-col">Kobber folie er strømaftager i lithium-ion celler.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. Transport til Gigafactory</td>
+                        <td class="sted-col">Busan → Oakland → Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Kobber folie til Panasonic batterieproduktion
+                            <div class="distance-time">12-14 dage + 300 km</div>
+                        </td>
+                        <td class="begrundelse-col">Panasonic bruger sydkoreansk kobber folie.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. Anode Current Collector</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Kobber folie fungerer som strømaftager for grafit-anoden.
+                            <div class="process-detail">Grafit slurry coates på kobber folie</div>
+                        </td>
+                        <td class="begrundelse-col">Kobber leder strøm fra anode til eksterne kredsløb.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. 18650 Celle Integration</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Kobber folie anode vikles med aluminium folie katode.
+                            <div class="process-detail">Cylindrisk vikling med separator</div>
+                        </td>
+                        <td class="begrundelse-col">Komplet 18650 celle med kobber strømaftager.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Tesla Batteripakke</td>
+                        <td class="sted-col">Nevada → Fremont</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Celler med kobber til Model S batteripakke
+                            <div class="distance-time">380 km, 5 timer</div>
+                        </td>
+                        <td class="begrundelse-col">7,104 celler med kobber i hver Model S.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Europa & Århus</td>
+                        <td class="sted-col">Fremont → Zeebrugge → Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div><div class="transport-icon">🚛</div>Model S med kobber-komponenter til Danmark
+                            <div class="distance-time">16 dage + 12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Tesla med chilensk kobber klar i Århus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ALUMINIUM -->
+        <div class="material-section aluminium">
+            <div class="material-header">
+                ⚪ ALUMINIUM - Guinea → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Bauxite Mining</td>
+                        <td class="sted-col">Sangarédi, Guinea</td>
+                        <td class="proces-col">
+                            Bauxite malm (45-60% Al₂O₃) udvindes fra åbne miner.
+                            <div class="transport-icon">🚛</div>Transport til Kamsar havn
+                            <div class="distance-time">135 km, 3-4 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Guinea har verdens største bauxite-reserver.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Skibstransport til Kina</td>
+                        <td class="sted-col">Kamsar → Qingdao, Kina</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Bauxite i bulk carriers til kinesiske raffinaderier
+                            <div class="distance-time">25-30 dage via Suez</div>
+                        </td>
+                        <td class="begrundelse-col">Kina raffinerer 55% af verdens alumina.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Bayer Process - Alumina</td>
+                        <td class="sted-col">Shandong Provins, Kina</td>
+                        <td class="proces-col">
+                            Kaustisk soda ekstraherer alumina (Al₂O₃) fra bauxite.
+                            <div class="process-detail">Digestion, clarification og precipitation</div>
+                        </td>
+                        <td class="begrundelse-col">Alumina er råmateriale til aluminium-elektrolyse.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Hall-Héroult Elektrolyse</td>
+                        <td class="sted-col">Xinjiang, Kina</td>
+                        <td class="proces-col">
+                            Alumina smeltes ved 960°C til metallisk aluminium.
+                            <div class="process-detail">Cryolit flux og carbon anoder</div>
+                        </td>
+                        <td class="begrundelse-col">Billig elektricitet i Xinjiang til energiintensiv proces.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Aluminium Sheets</td>
+                        <td class="sted-col">Foshan, Guangdong, Kina</td>
+                        <td class="proces-col">
+                            Aluminium valses til tynde plader til batterikasser.
+                            <div class="process-detail">Hot rolling og cold rolling til præcision</div>
+                        </td>
+                        <td class="begrundelse-col">Guangdong har stor metallurgi industri.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. CNC Bearbejdning</td>
+                        <td class="sted-col">Dongguan, Kina</td>
+                        <td class="proces-col">
+                            Aluminium bearbejdes til batterikasse-komponenter til Tesla.
+                            <div class="process-detail">Precision machining og surface treatment</div>
+                        </td>
+                        <td class="begrundelse-col">Dongguan specialiserer sig i præcisions-fremstilling.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. Transport til Gigafactory</td>
+                        <td class="sted-col">Shenzhen → Oakland → Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Aluminium batterikasse-dele til Panasonic
+                            <div class="distance-time">14-16 dage + 300 km</div>
+                        </td>
+                        <td class="begrundelse-col">Panasonic assemblerer batterimoduler med aluminium.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. 18650 Module Housing</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Aluminium kasser beskytter 18650 celler i moduler.
+                            <div class="process-detail">Termisk ledning og strukturel styrke</div>
+                        </td>
+                        <td class="begrundelse-col">Aluminium giver letvægt og varmeafledning.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. Batteripakke Integration</td>
+                        <td class="sted-col">Nevada → Fremont</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Batterimoduler med aluminium til Model S
+                            <div class="distance-time">380 km, 5 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Model S batteripakke med aluminium køling.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Tesla Karosseri</td>
+                        <td class="sted-col">Fremont, Californien</td>
+                        <td class="proces-col">
+                            Aluminium space frame og batteripakke integreres i Model S.
+                            <div class="process-detail">Aluminium giver letvægt og korrosionsbestandighed</div>
+                        </td>
+                        <td class="begrundelse-col">Model S har aluminium karosseri for vægtbesparelse.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Europa Levering</td>
+                        <td class="sted-col">Fremont → Zeebrugge → Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div><div class="transport-icon">🚛</div>Model S med guineansk aluminium til Danmark
+                            <div class="distance-time">16 dage + 12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Tesla med guinenskgt aluminium klar i Århus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- JERN & STÅL -->
+        <div class="material-section jern">
+            <div class="material-header">
+                ⚫ JERN & STÅL - Australien → Tesla Model S, Århus
+            </div>
+            
+            <table class="journey-table">
+                <thead>
+                    <tr>
+                        <th class="fase-col">Fase</th>
+                        <th class="sted-col">Sted</th>
+                        <th class="proces-col">Hvad sker der</th>
+                        <th class="begrundelse-col">Hvorfor netop her?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fase-col">1. Jernmalm Mining</td>
+                        <td class="sted-col">Mount Tom Price, Pilbara, Australien</td>
+                        <td class="proces-col">
+                            Hematit jernmalm (62-67% Fe) fra verdens største jernmalm-operation.
+                            <div class="transport-icon">🚂</div>Jernbane til Port Hedland
+                            <div class="distance-time">293 km, 8-12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Australien eksporterer 37% af verdens jernmalm.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">2. Skibstransport</td>
+                        <td class="sted-col">Port Hedland → Kimitsu, Japan</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Capesize bulk carriers (180.000+ tons) til JFE Steel
+                            <div class="distance-time">12-15 dage via direkte rute</div>
+                        </td>
+                        <td class="begrundelse-col">Japan er stor stålproducent med høj kvalitet.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">3. Højovn til Rå-jern</td>
+                        <td class="sted-col">JFE Kimitsu Works, Japan</td>
+                        <td class="proces-col">
+                            Jernmalm + koks + kalksten → rå-jern ved 1.500°C.
+                            <div class="process-detail">Blast furnace med 4.500 m³ volumen</div>
+                        </td>
+                        <td class="begrundelse-col">Reduktion af jernoxid til metallisk jern.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">4. Basic Oxygen Furnace</td>
+                        <td class="sted-col">JFE Kimitsu, Japan</td>
+                        <td class="proces-col">
+                            Rå-jern + skrot → stål via oxygen blæsning.
+                            <div class="process-detail">Fjernelse af kulstof og urenheder</div>
+                        </td>
+                        <td class="begrundelse-col">Producerer højkvalitets stål til bilindustrien.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">5. Specialstål Legering</td>
+                        <td class="sted-col">JFE Kimitsu, Japan</td>
+                        <td class="proces-col">
+                            Tilsætning af mangan, krom og nikkel til rustfrit stål.
+                            <div class="process-detail">Grade 316L til batterikasse-fastgørelse</div>
+                        </td>
+                        <td class="begrundelse-col">Rustfrit stål til korrosionsbestandighed.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">6. Stål Komponenter</td>
+                        <td class="sted-col">Yokohama, Japan</td>
+                        <td class="proces-col">
+                            Rustfrit stål formes til batterikasse-fastgørelser og strukturelementer.
+                            <div class="process-detail">Stamping, welding og surface treatment</div>
+                        </td>
+                        <td class="begrundelse-col">Præcisions-fremstilling til Tesla specifikationer.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">7. Transport til Gigafactory</td>
+                        <td class="sted-col">Yokohama → Oakland → Nevada</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div>Stål batterikasse-komponenter til Panasonic
+                            <div class="distance-time">10-12 dage + 300 km</div>
+                        </td>
+                        <td class="begrundelse-col">Panasonic bruger stål til batterimodul-struktur.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">8. Batterikasse Assembly</td>
+                        <td class="sted-col">Gigafactory, Nevada</td>
+                        <td class="proces-col">
+                            Stål fastgørelser og struktur til 18650 batterimoduler.
+                            <div class="process-detail">Rustfrit stål sikrer langtidsholdbarhed</div>
+                        </td>
+                        <td class="begrundelse-col">Stål giver strukturel integritet til batterier.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">9. Model S Integration</td>
+                        <td class="sted-col">Nevada → Fremont</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚛</div>Batterimoduler med stål til Model S chassis
+                            <div class="distance-time">380 km, 5 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Stål struktur bærer batteripakke sikkert.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">10. Tesla Strukturintegration</td>
+                        <td class="sted-col">Fremont, Californien</td>
+                        <td class="proces-col">
+                            Stål batterikasse monteres i aluminium space frame.
+                            <div class="process-detail">Hybrid af stål og aluminium for optimal styrke</div>
+                        </td>
+                        <td class="begrundelse-col">Stål hvor styrke er kritisk, aluminium for vægt.</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-col">11. Europa & Danmark</td>
+                        <td class="sted-col">Fremont → Zeebrugge → Århus</td>
+                        <td class="proces-col">
+                            <div class="transport-icon">🚢</div><div class="transport-icon">🚛</div>Model S med australsk jern/stål til Danmark
+                            <div class="distance-time">16 dage + 12 timer</div>
+                        </td>
+                        <td class="begrundelse-col">Tesla med australsk jern klar til salg i Århus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="final-destination">
+            <h3>🎯 SLUTDESTINATION: Tesla Risskov, Århus</h3>
+            <p><strong>Tesla Model S (2022)</strong> med 18650 NCA-celler fra Panasonic</p>
+            <p>Alle 8 råstoffer har rejst fra deres respektive miner til Gigafactory Nevada, samlet i Fremont og leveret til dansk forbruger</p>
+            <p><strong>Total rejseafstand:</strong> 50.000-80.000 km per råstof</p>
+            <p><strong>Total transporttid:</strong> 3-6 måneder fra mine til bil</p>
+        </div>
+    </div>
+</body>
+</html>
